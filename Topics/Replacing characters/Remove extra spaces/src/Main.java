@@ -1,0 +1,13 @@
+import java.util.Scanner;
+
+class RemoveExtraSpacesProblem {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String text = scanner.nextLine();
+        String chara = " ";
+        String fixed = text.replaceAll("\\s{2,}", chara);
+        System.out.println(fixed);
+        // write your code here
+    }
+}

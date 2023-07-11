@@ -1,0 +1,14 @@
+type: code
+files:
+- name: src/Main.java
+  visible: true
+  text: "import java.util.Scanner;\n\npublic class Main {\n    private static String\
+    \ replace(String input) {\n        // write your code here\n        return null;\n\
+    \    }    \n\n    // Don't change the code below\n    public static void main(String[]\
+    \ args) {\n        Scanner scanner = new Scanner(System.in);\n        String line\
+    \ = scanner.nextLine();\n        System.out.println(replace(line)); \n    }\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/28734#comment
+status: Solved
+record: -1
+submission_language: java17
