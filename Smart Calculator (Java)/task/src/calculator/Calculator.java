@@ -73,51 +73,51 @@ public class Calculator {
         String choice;
         BigInteger value;
         String p = "";
-        for (int i = 0; i < tokens.length; i++) {
-            if (!tokens[i].matches("[\\*\\+/-]")) {
-                stack.push(tokens[i]);
+        for (String token : tokens) {
+            if (!token.matches("[\\*\\+/-]")) {
+                stack.push(token);
                 continue;
-            }
-            else {
-                choice = tokens[i];
+            } else {
+                choice = token;
             }
             switch (choice) {
-                case "+":
+                case "+" -> {
                     x = new BigInteger(stack.pop());
                     y = new BigInteger(stack.pop());
                     value = x.add(y);
                     result = p + value;
                     stack.push(result);
-                    break;
-                case "-":
+                }
+                case "-" -> {
                     x = new BigInteger(stack.pop());
                     y = new BigInteger(stack.pop());
                     value = y.subtract(x);
                     result = p + value;
                     stack.push(result);
-                    break;
-                case "*":
+                }
+                case "*" -> {
                     x = new BigInteger(stack.pop());
                     y = new BigInteger(stack.pop());
                     value = x.multiply(y);
                     result = p + value;
                     stack.push(result);
-                    break;
-                case "/":
+                }
+                case "/" -> {
                     x = new BigInteger(stack.pop());
                     y = new BigInteger(stack.pop());
                     value = y.divide(x);
                     result = p + value;
                     stack.push(result);
-                    break;
-                case "^":
+                }
+                case "^" -> {
                     x = new BigInteger(stack.pop());
                     y = new BigInteger(stack.pop());
                     value = BigInteger.valueOf((long) Math.pow(x.doubleValue(), y.doubleValue()));
                     result = p + value;
                     stack.push(result);
-                    break;
-                default:
+                }
+                default -> {
+                }
             }
         }
 
@@ -163,7 +163,7 @@ public class Calculator {
             } else if (numInput.equals("/help")) {
                 System.out.println("The program calculates the sum of numbers");
                 continue;
-            } else if(numInput.substring(0,1).equals("/") && numInput.substring(1).matches("[a-zA-Z]+")) {
+            } else if(numInput.charAt(0) == '/' && numInput.substring(1).matches("[a-zA-Z]+")) {
                 System.out.println("Unknown command");
                 continue;
             }
@@ -257,9 +257,6 @@ public class Calculator {
             }
         }
 
-        if(countOne != countTwo) {
-            return false;
-        }
-        return true;
+        return countOne == countTwo;
     }
 }
